@@ -3,6 +3,7 @@ import {
   AppRegistry,
   Text,
   Image,
+  ListView,
   View,
   ToastAndroid,
   StyleSheet,
@@ -16,7 +17,12 @@ const {height, width} = Dimensions.get('window');   //获取屏幕宽高
 export default class SecondPage extends React.Component {
   constructor(props) {
       super(props);
-      this.state = {};
+      var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+      this.state = {
+        dataSource: ds.cloneWithRows(
+          ['row 1', 'row 2', 'row 3', 'row 4', 'row 5',
+            'row 6', 'row 7', 'row 8', 'row 9', 'row 10']),
+      };
   }
   _login(param) {
     if(param==='lon'){
@@ -28,8 +34,6 @@ export default class SecondPage extends React.Component {
                 component: MainPage,
             })
         }
-    }else{
-      ToastAndroid.show('~第二页注册~',ToastAndroid.SHORT)
     }
   }
   render(){
@@ -39,17 +43,14 @@ export default class SecondPage extends React.Component {
       let picloc = require('../img/login.png');
     return (
         <Image source={picloc} style={styles.backgroundImg}>
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={(rowData) => <Text>{rowData}</Text>}
+            />
           <View style={styles.mianView}>
             <Text style={[styles.textButton,styles.FE663B]}
-                  onPress={()=>this._login('lon')}
-            >
-            登录
-            </Text>
-            <Text style={[styles.textButton,styles.FFFFFF1B]}
-            selectable={true}
-            onPress={()=>this._login('reg')}
-            >
-            注册
+                  onPress={()=>this._login('lon')}>
+            😄 返回 😄
             </Text>
           </View>
         </Image>

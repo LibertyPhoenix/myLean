@@ -14,7 +14,7 @@ export default class myLean extends Component {
         <Navigator
           initialRoute={{ name: 'MainPage', component: MainPage}}
           configureScene={(route) => {
-            return Navigator.SceneConfigs.HorizontalSwipeJump;
+            return Navigator.SceneConfigs.PushFromRight;
           }}
           renderScene={(route, navigator) => {
             let Component = route.component;
