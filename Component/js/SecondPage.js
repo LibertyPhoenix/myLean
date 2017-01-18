@@ -21,7 +21,9 @@ export default class SecondPage extends React.Component {
       this.state = {
         dataSource: ds.cloneWithRows(
           ['row 1', 'row 2', 'row 3', 'row 4', 'row 5',
-            'row 6', 'row 7', 'row 8', 'row 9', 'row 10']),
+            'row 6', 'row 7', 'row 8', 'row 9', 'row 10',
+            'row 11', 'row 12', 'row 13', 'row 14', 'row 15',
+          ]),
       };
   }
   _login(param) {
@@ -45,7 +47,12 @@ export default class SecondPage extends React.Component {
         <Image source={picloc} style={styles.backgroundImg}>
           <ListView
             dataSource={this.state.dataSource}
-            renderRow={(rowData) => <Text>{rowData}</Text>}
+            renderRow={(rowData) =>
+              <View style={styles.ListView}>
+              <Image source={picNet} style={{width:40,height:40}}/>
+              <Text style={styles.textItem}>{rowData}</Text>
+              </View>
+              }
             />
           <View style={styles.mianView}>
             <Text style={[styles.textButton,styles.FE663B]}
@@ -71,6 +78,13 @@ export default class SecondPage extends React.Component {
     justifyContent: 'flex-end',
     alignItems: 'center'
   },
+  ListView:{
+    width:width,
+    flexDirection: 'row',
+    height:40,
+    backgroundColor: '#FFFFFF1B',
+    marginBottom:10,
+  },
   textButton:{
     width:width,
     height: 59,
@@ -79,6 +93,10 @@ export default class SecondPage extends React.Component {
     fontSize: 16,   //设置文字大小
     color:'#FFFFFF',   //设置文字颜色
     marginBottom:10,
+  },
+  textItem:{
+    fontSize: 20,   //设置文字大小
+    color:'#FFFFFF',   //设置文字颜色
   },
   FE663B:{
     backgroundColor: '#FE663B',
