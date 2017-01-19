@@ -38,7 +38,9 @@ export default class SecondPage extends React.Component {
         }
     }
   }
+
   render(){
+      console.log('------>>>>render');
       let picNet = {
           uri: 'http://tva2.sinaimg.cn/crop.3.0.634.634.1024/cd516b22jw8fa4mlfynwzj20hs0hm0tr.jpg'
       };
@@ -51,6 +53,7 @@ export default class SecondPage extends React.Component {
               <View style={styles.ListView}>
               <Image source={picNet} style={{width:40,height:40}}/>
               <Text style={styles.textItem}>{rowData}</Text>
+
               </View>
               }
             />
@@ -63,6 +66,35 @@ export default class SecondPage extends React.Component {
         </Image>
     );
   }
+    componentWillMount(){
+      console.log('------>>>>componentWillMount');
+    }
+
+    componentDidMount(){
+      console.log('------>>>>componentDidMount');
+
+    }
+
+    componentWillReceiveProps(){
+      console.log('------>>>>componentWillReceiveProps');
+    }
+
+    shouldComponentUpdate(){
+      console.log('------>>>>shouldComponentUpdate');
+    }
+
+    componentWillUpdate(){
+      console.log('------>>>>componentWillUpdate');
+    }
+
+    componentDidUpdate(){
+      console.log('------>>>>componentDidUpdate');
+    }
+
+    componentWillUnmount(){
+      console.log('------>>>>componentWillUnmount');
+    }
+
   }
   //用多个style值控制 文本样式  数组
   const styles = StyleSheet.create({
